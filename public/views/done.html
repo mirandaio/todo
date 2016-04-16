@@ -1,0 +1,9 @@
+<div>
+  <button ng-click="goToTodos()">Todos</button>
+  <ul>
+    <li ng-repeat="doneTodo in doneTodos">
+      {{ doneTodo.content }}
+      <button ng-click="undo($index)">Undo</button>
+    </li>
+  </ul>
+</div>

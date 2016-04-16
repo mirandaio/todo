@@ -1,0 +1,29 @@
+{
+  "name": "todo",
+  "version": "0.0.1",
+  "description": "Yet another todo app",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "postinstall": "bower install",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mirandaio/todo.git"
+  },
+  "author": "Alfredo Miranda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mirandaio/todo/issues"
+  },
+  "homepage": "https://github.com/mirandaio/todo#readme",
+  "dependencies": {
+    "bcrypt": "^0.8.5",
+    "body-parser": "^1.15.0",
+    "bower": "^1.7.9",
+    "express": "^4.13.4",
+    "jsonwebtoken": "^5.7.0",
+    "mongoose": "^4.4.12"
+  }
+}

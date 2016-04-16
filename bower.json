@@ -1,0 +1,10 @@
+{
+  "name": "todo",
+  "version": "0.0.1",
+  "dependencies": {
+    "angular": "^1.5.3",
+    "angular-ui-router": "^0.2.18",
+    "jquery": "1.9.1",
+    "bootstrap": "^3.3.6"
+  }
+}
