@@ -26,8 +26,9 @@ angular.module('todoApp.controllers', [])
   });
 
   $scope.addTodo = function() {
-    $scope.todos.push($scope.newTodo);
-    $http.post('/todos', $scope.newTodo);
+    $http.post('/todos', $scope.newTodo).then(function(res) {
+      $scope.todos.push(res.data);
+    });
     $scope.newTodo = {};
   };
 
@@ -36,9 +37,8 @@ angular.module('todoApp.controllers', [])
   };
 
   $scope.completeTodo = function(index) {
-    var todo = $scope.todos.splice(index, 1);
-    $http.put('/todos/' + todo[0]._id, {completed: true}).then(function(res) {
-      console.log(res.data);
+    $http.put('/todos/' + $scope.todos[index]._id, {completed: true}).then(function(res) {
+      $scope.todos.splice(index, 1);
     });
   };
 }])
