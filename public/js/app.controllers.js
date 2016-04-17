@@ -65,6 +65,6 @@ angular.module('todoApp.controllers', [])
 
   $scope.signOut = function() {
     delete $localStorage.token;
-    $state.go('signin');
+    $state.go('home');
   };
 }]);

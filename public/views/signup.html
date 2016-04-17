@@ -1,7 +1,11 @@
 <section class="form-page">
   <div class="form">
-    <h3>Sign in</h3>
+    <h3>Sign up</h3>
     <form>
+      <label>
+        <div>Name</div>
+        <input type="text" ng-model="user.name">
+      </label>
       <label>
         <div>Username</div>
         <input type="text" ng-model="user.username">
@@ -10,9 +14,9 @@
         <div>Password</div>
         <input type="password" ng-model="user.password">
       </label>
-      <button ng-click="signIn()">Sign in</button>
+      <button ng-click="signUp()">Sign up</button>
       <div>or</div>
-      <button ui-sref="signup">Sign up</button>
+      <button ui-sref="home">Sign in</button>
     </form>
   </div>
 </section>
