@@ -12,7 +12,8 @@ var todoSchema = mongoose.Schema({
   completed: {
     type: Boolean,
     required: true
-  }
+  },
+  completedAt: Date
 });
 
 module.exports = mongoose.model('Todo', todoSchema);

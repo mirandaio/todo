@@ -39,8 +39,10 @@ app.put('/todos/:id', function(req, res) {
   console.log('PUT /todos/:id');
   var token = req.headers.authorization.slice(7);
   var user = jwt.verify(token, SECRET);
-  Todo.findByIdAndUpdate(req.params.id, { completed: req.body.completed },
-    function(err, updatedTodo) {
+  Todo.findByIdAndUpdate(req.params.id, {
+    completed: req.body.completed,
+    completedAt: req.body.completedAt
+  }, function(err, updatedTodo) {
       if(err) return console.log(err);
       res.send(updatedTodo);
   });

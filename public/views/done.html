@@ -4,6 +4,7 @@
   <ul>
     <li ng-repeat="doneTodo in doneTodos">
       {{ doneTodo.content }}
+      {{ doneTodo.completedAt }}
       <button ng-click="undo($index)">Undo</button>
     </li>
   </ul>

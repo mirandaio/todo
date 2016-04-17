@@ -34,7 +34,10 @@ angular.module('todoApp.controllers', [])
   };
 
   $scope.completeTodo = function(index) {
-    $http.put('/todos/' + $scope.todos[index]._id, {completed: true})
+    $http.put('/todos/' + $scope.todos[index]._id, {
+      completed: true,
+      completedAt: new Date()
+    })
     .then(function(res) {
       $scope.todos.splice(index, 1);
     });
