@@ -18,6 +18,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 app.get('/dones', function(req, res) {
+  console.log('GET /dones');
   var token = req.headers.authorization.slice(7);
   var user = jwt.verify(token, SECRET);
   Todo.find({userid: user._id, completed: true}).then(function(dones) {
@@ -26,6 +27,7 @@ app.get('/dones', function(req, res) {
 });
 
 app.get('/todos', function(req, res) {
+  console.log('GET /todos');
   var token = req.headers.authorization.slice(7);
   var user = jwt.verify(token, SECRET);
   Todo.find({userid: user._id, completed: false}).then(function(todos) {
@@ -34,6 +36,7 @@ app.get('/todos', function(req, res) {
 });
 
 app.put('/todos/:id', function(req, res) {
+  console.log('PUT /todos/:id');
   var token = req.headers.authorization.slice(7);
   var user = jwt.verify(token, SECRET);
   Todo.findByIdAndUpdate(req.params.id, { completed: req.body.completed },
@@ -44,6 +47,7 @@ app.put('/todos/:id', function(req, res) {
 });
 
 app.put('/dones/:id', function(req, res) {
+  console.log('PUT /dones/:id');
   var token = req.headers.authorization.slice(7);
   var user = jwt.verify(token, SECRET);
   Todo.findByIdAndUpdate(req.params.id, { completed: req.body.completed },
@@ -54,6 +58,7 @@ app.put('/dones/:id', function(req, res) {
 });
 
 app.post('/todos', function(req, res) {
+  console.log('POST /todos');
   var token = req.headers.authorization.slice(7);
   var user = jwt.verify(token, SECRET);
   var todo = new Todo({
@@ -68,6 +73,7 @@ app.post('/todos', function(req, res) {
 });
 
 app.post('/signup', function(req, res) {
+  console.log('POST /signup');
   var username = req.body.username;
   User.findOne({username: username}).then(function(doc) {
     if(doc !== null) {
@@ -88,6 +94,7 @@ app.post('/signup', function(req, res) {
 });
 
 app.post('/signin', function(req, res) {
+  console.log('POST /signin');
   var username = req.body.username;
   var plainTextPassword = req.body.password;
 
