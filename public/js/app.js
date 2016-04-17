@@ -1,19 +1,20 @@
 angular.module('todoApp', [
   'ui.router',
+  'ngStorage',
   'todoApp.controllers'
 ])
 .config(function($stateProvider, $locationProvider, $httpProvider) {
 
-  $httpProvider.interceptors.push(function() {
+  $httpProvider.interceptors.push(['$localStorage', function($localStorage) {
     return {
       request: function(config) {
-        if(localStorage.getItem('token')) {
-          config.headers.Authorization = 'Bearer ' + localStorage.getItem('token');
+        if($localStorage.token) {
+          config.headers.Authorization = 'Bearer ' + $localStorage.token;
         }
         return config;
       }
     };
-  });
+  }]);
 
   $locationProvider.html5Mode(true);
 

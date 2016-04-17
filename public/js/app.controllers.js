@@ -1,24 +1,25 @@
 angular.module('todoApp.controllers', [])
-.controller('SignInController', ['$scope', '$http', '$state',
-  function($scope, $http, $state) {
+.controller('SignInController', ['$scope', '$http', '$state', '$localStorage',
+  function($scope, $http, $state, $localStorage) {
   $scope.signIn = function() {
     $http.post('/signin', $scope.user).then(function(res) {
-      localStorage.setItem('token', res.data.token);
+      $localStorage.token = res.data.token;
       $state.go('todo');
     });
   };
 }])
-.controller('SignUpController', ['$scope', '$http', '$state',
-  function($scope, $http, $state) {
+.controller('SignUpController', ['$scope', '$http', '$state', '$localStorage',
+  function($scope, $http, $state, $localStorage) {
   $scope.user = {};
   $scope.signUp = function() {
     $http.post('/signup', $scope.user).then(function(res) {
-      localStorage.setItem('token', res.data.token);
+      $localStorage.token = res.data.token;
       $state.go('todo');
     });
   };
 }])
-.controller('TodoController', ['$scope', '$http', function($scope, $http) {
+.controller('TodoController', ['$scope', '$http', '$localStorage', '$state',
+  function($scope, $http, $localStorage, $state) {
   $scope.newTodo = {};
 
   $http.get('/todos').then(function(res) {
@@ -33,12 +34,19 @@ angular.module('todoApp.controllers', [])
   };
 
   $scope.completeTodo = function(index) {
-    $http.put('/todos/' + $scope.todos[index]._id, {completed: true}).then(function(res) {
+    $http.put('/todos/' + $scope.todos[index]._id, {completed: true})
+    .then(function(res) {
       $scope.todos.splice(index, 1);
     });
   };
+
+  $scope.signOut = function() {
+    delete $localStorage.token;
+    $state.go('signin');
+  };
 }])
-.controller('DoneController', ['$scope', '$http', function($scope, $http) {
+.controller('DoneController', ['$scope', '$http', '$localStorage', '$state',
+  function($scope, $http, $localStorage, $state) {
 
   $http.get('/dones').then(function(res) {
     $scope.doneTodos = res.data;
@@ -46,8 +54,14 @@ angular.module('todoApp.controllers', [])
 
   $scope.undo = function(index) {
     var doneTodo = $scope.doneTodos.splice(index, 1);
-    $http.put('/todos/' + doneTodo[0]._id, {completed: false}).then(function(res) {
+    $http.put('/todos/' + doneTodo[0]._id, {completed: false})
+    .then(function(res) {
       console.log(res.data);
     });
+  };
+
+  $scope.signOut = function() {
+    delete $localStorage.token;
+    $state.go('signin');
   };
 }]);
