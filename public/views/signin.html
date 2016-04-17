@@ -1,0 +1,34 @@
+<section class="form-page">
+  <div class="form" ng-controller="SignInController">
+    <h3>Sign in</h3>
+    <form>
+      <label>
+        <div>Username</div>
+        <input type="text" ng-model="user.username">
+      </label>
+      <label>
+        <div>Password</div>
+        <input type="password" ng-model="user.password">
+      </label>
+      <button ng-click="signIn()">Sign in</button>
+    </form>
+  </div>
+  <div class="form" ng-controller="SignUpController">
+    <h3>Sign up</h3>
+    <form>
+      <label>
+        <div>Name</div>
+        <input type="text" ng-model="user.name">
+      </label>
+      <label>
+        <div>Username</div>
+        <input type="text" ng-model="user.username">
+      </label>
+      <label>
+        <div>Password</div>
+        <input type="password" ng-model="user.password">
+      </label>
+      <button ng-click="signUp()">Sign up</button>
+    </form>
+  </div>
+</section>

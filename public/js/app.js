@@ -18,6 +18,10 @@ angular.module('todoApp', [
   $locationProvider.html5Mode(true);
 
   $stateProvider
+    .state('signin', {
+      url: '/',
+      templateUrl: 'views/signin.html'
+    })
     .state('todo', {
       url: "/todo",
       templateUrl: "views/todo.html",
