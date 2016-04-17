@@ -14,7 +14,7 @@ angular.module('todoApp.controllers', [])
   $scope.signUp = function() {
     $http.post('/signup', $scope.user).then(function(res) {
       $localStorage.token = res.data.token;
-      $state.go('todo');
+      $state.go('home');
     });
   };
 }])
