@@ -112,4 +112,12 @@ app.post('/signin', function(req, res) {
   });
 });
 
+app.all('/todo', function(req, res) {
+  res.sendFile(__dirname + '/public/index.html');
+});
+
+app.all('/done', function(req, res) {
+  res.sendFile(__dirname + '/public/index.html');
+});
+
 app.listen(process.env.PORT || 8764);
