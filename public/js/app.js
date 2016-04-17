@@ -19,12 +19,20 @@ angular.module('todoApp', [
   $locationProvider.html5Mode(true);
 
   $stateProvider
-    .state('signin', {
+    .state('home', {
       url: '/',
+      controller: ['$state', '$localStorage', function($state, $localStorage) {
+        if($localStorage.token) {
+          $state.go('todo');
+        } else {
+          $state.go('signin');
+        }
+      }]
+    })
+    .state('signin', {
       templateUrl: 'views/signin.html'
     })
     .state('todo', {
-      url: "/todo",
       templateUrl: "views/todo.html",
       controller: 'TodoController'
     })
