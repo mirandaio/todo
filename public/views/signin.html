@@ -1,18 +1,16 @@
-<section class="form-page">
-  <div class="form">
-    <h3>Sign in</h3>
-    <form>
-      <label>
-        <div>Username</div>
-        <input type="text" ng-model="user.username">
-      </label>
-      <label>
-        <div>Password</div>
-        <input type="password" ng-model="user.password">
-      </label>
-      <button ng-click="signIn()">Sign in</button>
-      <div>or</div>
-      <button ui-sref="signup">Sign up</button>
-    </form>
-  </div>
+<section class="container">
+  <form class="form-signin">
+    <h2 class="form-signin-heading">Please sign in</h2>
+    <label for="input-email" class="sr-only">Username</label>
+    <input type="text" id="input-email" class="form-control"
+    placeholder="Username" required autofocus ng-model="user.username">
+    <label for="input-password" class="sr-only">Password</label>
+    <input type="password" id="input-password" class="form-control"
+    placeholder="Password" required ng-model="user.password">
+    <button class="btn btn-lg btn-primary btn-block" ng-click="signIn()">
+      Sign in
+    </button>
+    <div>or</div>
+    <button class="btn btn-lg btn-success" ui-sref="signup">Sign up</button>
+  </form>
 </section>

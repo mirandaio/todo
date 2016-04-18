@@ -2,9 +2,9 @@
   "name": "todo",
   "version": "0.0.1",
   "dependencies": {
-    "angular": "^1.5.3",
+    "angular": "^1.5.5",
     "angular-ui-router": "^0.2.18",
-    "jquery": "1.9.1",
+    "jquery": "^2.2.3",
     "bootstrap": "^3.3.6",
     "ngstorage": "^0.3.10"
   }
