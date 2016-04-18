@@ -57,10 +57,7 @@ angular.module('todoApp.controllers', [])
 
   $scope.undo = function(index) {
     var doneTodo = $scope.doneTodos.splice(index, 1);
-    $http.put('/todos/' + doneTodo[0]._id, {completed: false})
-    .then(function(res) {
-      console.log(res.data);
-    });
+    $http.put('/todos/' + doneTodo[0]._id, {completed: false});
   };
 
   $scope.signOut = function() {

@@ -8,7 +8,9 @@
   <ul class="list-group todo-list">
     <li class="list-group-item todo-item" ng-repeat="doneTodo in doneTodos">
       {{ doneTodo.content }}
-      {{ doneTodo.completedAt }}
+      <span class="completed-at">
+        Completed on: {{ doneTodo.completedAt | date: 'medium' }}
+      </span>
       <button class="btn btn-sm pull-right btn-success" ng-click="undo($index)">
         Undo
       </button>

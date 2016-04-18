@@ -73,3 +73,8 @@ header {
   top: 10px;
   right: 10px;
 }
+
+.completed-at {
+  position: absolute;
+  right: 77px;
+}
