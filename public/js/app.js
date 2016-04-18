@@ -34,7 +34,7 @@ angular.module('todoApp', [
       controller: 'SignInController'
     })
     .state('signup', {
-      url: 'signup',
+      url: '/signup',
       templateUrl: 'views/signup.html',
       controller: 'SignUpController'
     })

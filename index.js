@@ -122,4 +122,8 @@ app.all('/done', function(req, res) {
   res.sendFile(__dirname + '/public/index.html');
 });
 
+app.all('/signup', function(req, res) {
+  res.sendFile(__dirname + '/public/index.html');
+});
+
 app.listen(process.env.PORT || 8764);
