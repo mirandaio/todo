@@ -1,17 +1,26 @@
 <div>
-  <button ng-click="signOut()">Sign Out</button>
-  <button ui-sref="done">Done Todos</button>
-  <form>
-    <label>
-      Content
-      <input type="text" ng-model="newTodo.content">
-    </label>
-    <button ng-click="addTodo()">Add Todo</button>
+  <div class="todo-menu">
+    <button type="button" class="btn btn-warning" ui-sref="done">
+      Go to completed list
+    </button>
+    <button type="button" class="btn btn-danger sign-out"
+    ng-click="signOut()">
+      Sign Out
+    </button>
+  </div>
+  <form class="todo-form">
+    <label for="todo-input" class="sr-only">Todo</label>
+    <input id="todo-input" type="text" class="form-control" placeholder="Todo"
+    required ng-model="newTodo.content">
+    <button class="btn btn-primary" ng-click="addTodo()">Add Todo</button>
   </form>
-  <ul>
-    <li ng-repeat="todo in todos">
+  <ul class="list-group todo-list">
+    <li class="list-group-item todo-item" ng-repeat="todo in todos">
       {{ todo.content }}
-      <button ng-click="completeTodo($index)">Done</button>
+      <button class="btn btn-sm pull-right btn-success"
+      ng-click="completeTodo($index)">
+        Done
+      </button>
     </li>
   </ul>
 </div>

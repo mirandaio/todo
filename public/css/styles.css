@@ -42,3 +42,34 @@ header {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+.todo-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.todo-item {
+  min-height: 51px;
+}
+
+.todo-form {
+  max-width: 800px;
+  margin: 0 auto 10px auto;
+}
+
+.todo-form input {
+  display: inline;
+  max-width: 709px;
+  margin: 0 auto;
+}
+
+.todo-menu {
+  max-width: 800px;
+  margin: 0 auto 10px auto;
+}
+
+.sign-out {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}

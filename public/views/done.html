@@ -1,11 +1,17 @@
 <div>
-  <button ng-click="signOut()">Sign Out</button>
-  <button ui-sref="home">Todos</button>
-  <ul>
-    <li ng-repeat="doneTodo in doneTodos">
+  <div class="todo-menu">
+    <button type="button" class="btn btn-warning" ui-sref="home">Todos</button>
+    <button type="button" class="btn btn-danger sign-out" ng-click="signOut()">
+      Sign Out
+    </button>
+  </div>
+  <ul class="list-group todo-list">
+    <li class="list-group-item todo-item" ng-repeat="doneTodo in doneTodos">
       {{ doneTodo.content }}
       {{ doneTodo.completedAt }}
-      <button ng-click="undo($index)">Undo</button>
+      <button class="btn btn-sm pull-right btn-success" ng-click="undo($index)">
+        Undo
+      </button>
     </li>
   </ul>
 </div>
