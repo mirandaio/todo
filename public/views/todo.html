@@ -12,7 +12,7 @@
     <label for="todo-input" class="sr-only">Todo</label>
     <input id="todo-input" type="text" class="form-control" placeholder="Todo"
     required ng-model="newTodo.content">
-    <button class="btn btn-primary" ng-click="addTodo()">Add Todo</button>
+    <button class="btn btn-primary" ng-click="addTodo($event)">Add Todo</button>
   </form>
   <ul class="list-group todo-list">
     <li class="list-group-item todo-item" ng-repeat="todo in todos">

@@ -26,7 +26,8 @@ angular.module('todoApp.controllers', [])
     $scope.todos = res.data;
   });
 
-  $scope.addTodo = function() {
+  $scope.addTodo = function(e) {
+    if($scope.newTodo.content) e.preventDefault();
     $http.post('/todos', $scope.newTodo).then(function(res) {
       $scope.todos.push(res.data);
     });
